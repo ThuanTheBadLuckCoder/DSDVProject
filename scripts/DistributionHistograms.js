@@ -13,7 +13,7 @@ function kernelEpanechnikov(k) {
 }
 
 // Load CSV file
-d3.csv("spotify-2023.csv").then(data => {
+d3.csv("../datasets/spotify-2023.csv").then(data => {
     console.log("Data loaded:", data); // Debug line to check data
 
     const features = ['danceability_%', 'energy_%', 'valence_%', 'acousticness_%', 'instrumentalness_%', 'liveness_%', 'speechiness_%'];

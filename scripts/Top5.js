@@ -1,5 +1,5 @@
 // Load data from CSV
-d3.csv("spotify-2023.csv").then(data => {
+d3.csv("../datasets/spotify-2023.csv").then(data => {
     // Step 1: Process the data to count releases by year
     const yearCount = d3.rollups(
         data,
