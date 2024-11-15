@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Distribution Histograms with KDE Lines</title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="../scripts/Header.js"></script>
     <style>
-        body { font-family: Arial, sans-serif; }
+        body { font-family: Arial, sans-serif; margin: 0; }
+        .chart-container { display: flex; justify-content: center; margin: 8px; }
         .chart-container { 
             display: flex; 
             flex-wrap: wrap; 
@@ -20,8 +22,10 @@
     </style>
 </head>
 <body>
-    <h2>Distribution Histograms with KDE Lines</h2>
-    <div class="chart-container" id="chart-container"></div>
+    <div class="chart-container" id="chart-container">
+        <h2>Distribution Histograms with KDE Lines</h2>
+
+    </div>
     <script src="../scripts/DistributionHistograms.js"></script>
 </body>
 </html>

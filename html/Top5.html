@@ -5,14 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Top 5 Release Years Pie Chart</title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="../scripts/Header.js"></script>
     <style>
-        body { font-family: Arial, sans-serif; }
-        .chart-container { display: flex; justify-content: center; }
+        body { font-family: Arial, sans-serif; margin: 0; }
+        .chart-container { .chart-container {
+            display: flex;
+            justify-content: center;
+            margin: 8px;
+            flex-direction: column;
+        } }
     </style>
 </head>
 <body>
-    <h2>Top 5 Years with the Most Song Releases</h2>
     <div class="chart-container">
+        <h2>Top 5 Years with the Most Song Releases</h2>
         <svg width="600" height="600"></svg>
     </div>
     <script src="../scripts/Top5.js"></script>
