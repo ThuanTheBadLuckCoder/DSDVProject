@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distribution Histograms with KDE Lines</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .chart-container { 
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center;
+            flex-direction: column;
+        }
+        .chart-container svg { 
+            margin: 10px;
+            overflow: visible; 
+        }
+    </style>
+</head>
+<body>
+    <h2>Distribution Histograms with KDE Lines</h2>
+    <div class="chart-container" id="chart-container"></div>
+    <script src="../scripts/DistributionHistograms.js"></script>
+</body>
+</html>

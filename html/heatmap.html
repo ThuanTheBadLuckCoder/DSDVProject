@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a heatmap displaying correlations among the audio features</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .chart-container { display: flex; justify-content: center; overflow: visible; }
+        .chart-container svg { overflow: visible; }
+    </style>
+</head>
+<body>
+    <h2>Top 5 Years with the Most Song Releases</h2>
+    <div class="chart-container">
+        <svg width="1600" height="1600"></svg>
+    </div>
+    <script src="../scripts/heatmap.js"></script>
+</body>
+</html>
