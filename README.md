@@ -1,4 +1,4 @@
-# Spotify Dataset Visualization**
+# Spotify Dataset Visualization
 
 This project visualizes the audio features of tracks from a Spotify dataset using D3.js and HTML/CSS. Key attributes like danceability, energy, valence, acousticness, instrumentalness, liveness, and speechiness are analyzed and displayed in various interactive visualizations, including histograms with KDE lines and heatmaps, to explore the distribution and correlation of audio characteristics.
 
