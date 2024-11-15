@@ -80,7 +80,7 @@ Below is an example of the histograms with KDE lines for feature distributions a
 |-----------------------|--------------|----------------------------------------------------------------------------|
 | Đoàn Trần Thuận       | 25%          | <a href="https://github.com/ThuanTheBadLuckCoder">ThuanTheBadLuckCoder</a> |
 | Huy Nguyen            | 25%          | <a href="https://github.com/huynq022">huynq022</a>                         |
-| Lê Tinh Nhật          | 25%          | <a href="https://github.com/ltnct12922">ltnct12922</a>                     |
+| Lê Tinh Nhựt          | 25%          | <a href="https://github.com/ltnct12922">ltnct12922</a>                     |
 | Đinh Quang Hiển       | 25%          | <a href="https://github.com/ititiu20201">ititiu20201(Be)</a>               |
 
 
