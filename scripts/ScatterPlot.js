@@ -1,4 +1,3 @@
-// Load CSV file
 d3.csv("../datasets/spotify-2023.csv").then(data => {
     const features = ['danceability_%', 'valence_%', 'energy_%', 'acousticness_%', 'liveness_%', 'speechiness_%'];
     const width = 1400;
@@ -31,7 +30,7 @@ d3.csv("../datasets/spotify-2023.csv").then(data => {
 
         // Calculate correlation
         const correlation = calculateCorrelation(featureData.map(d => d.featureValue), featureData.map(d => d.streams));
-        
+
         // Add correlation text
         container.append("div")
             .attr("class", "correlation")
@@ -50,16 +49,12 @@ d3.csv("../datasets/spotify-2023.csv").then(data => {
         svg.append("g")
             .attr("class", "grid")
             .attr("transform", `translate(0,${height - margin.top - margin.bottom})`)
-            .call(d3.axisBottom(x)
-                .tickSize(-(height - margin.top - margin.bottom))
-                .tickFormat(''))
+            .call(d3.axisBottom(x).tickSize(-(height - margin.top - margin.bottom)).tickFormat(''))
             .style("color", "#ddd");
 
         svg.append("g")
             .attr("class", "grid")
-            .call(d3.axisLeft(y)
-                .tickSize(-(width - margin.left - margin.right))
-                .tickFormat(''))
+            .call(d3.axisLeft(y).tickSize(-(width - margin.left - margin.right)).tickFormat(''))
             .style("color", "#ddd");
 
         // Add X axis
@@ -85,7 +80,17 @@ d3.csv("../datasets/spotify-2023.csv").then(data => {
             .style("font-size", "12px")
             .text("Lượt nghe trực tuyến trên Spotify");
 
-        // Draw points
+        // Draw points with interaction
+        const tooltip = container.append("div")
+            .style("position", "absolute")
+            .style("background", "#fff")
+            .style("border", "1px solid #ddd")
+            .style("padding", "5px")
+            .style("border-radius", "5px")
+            .style("box-shadow", "0 2px 4px rgba(0,0,0,0.1)")
+            .style("pointer-events", "none")
+            .style("opacity", 0);
+
         svg.selectAll("circle")
             .data(featureData)
             .enter()
@@ -94,7 +99,33 @@ d3.csv("../datasets/spotify-2023.csv").then(data => {
             .attr("cy", d => y(d.streams))
             .attr("r", 3)
             .style("fill", "red")
-            .style("opacity", 0.6);
+            .style("opacity", 0.6)
+            .on("mouseover", (event, d) => {
+                tooltip.style("opacity", 1)
+                    .html(`Feature: ${d.featureValue.toFixed(2)}<br>Streams: ${d.streams}`)
+                    .style("left", `${event.pageX + 10}px`)
+                    .style("top", `${event.pageY - 20}px`);
+            })
+            .on("mousemove", (event) => {
+                tooltip.style("left", `${event.pageX + 10}px`)
+                    .style("top", `${event.pageY - 20}px`);
+            })
+            .on("mouseout", () => {
+                tooltip.style("opacity", 0);
+            });
+
+        // Add zoom and pan
+        const zoom = d3.zoom()
+            .scaleExtent([1, 10]) // Zoom scale
+            .translateExtent([[0, 0], [width, height]]) // Pan boundaries
+            .on("zoom", (event) => {
+                svg.selectAll("circle")
+                    .attr("transform", event.transform);
+                svg.selectAll("g.axis").call(event.transform.rescaleX(x));
+                svg.selectAll("g.axis").call(event.transform.rescaleY(y));
+            });
+
+        svg.call(zoom);
     });
 });
 

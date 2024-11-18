@@ -33,13 +33,14 @@ d3.csv("../datasets/spotify-2023.csv").then(data => {
         .innerRadius(1)
         .outerRadius(radius);
 
-    
-
     const marginOuterArc = 1.15;
     const outerArc = d3.arc()
         .innerRadius(radius * marginOuterArc)  // Further distance from the circle
         .outerRadius(radius * marginOuterArc);
 
+    const tooltip = d3.select(".tooltip");
+
+    // Draw the pie chart
     svg.selectAll("path")
         .data(pie(top5Years))
         .enter()
@@ -47,7 +48,26 @@ d3.csv("../datasets/spotify-2023.csv").then(data => {
         .attr("d", arc)
         .attr("fill", d => color(d.data[0]))
         .attr("stroke", "white")
-        .style("stroke-width", "2px");
+        .style("stroke-width", "2px")
+        .on("mouseover", function (event, d) {
+            d3.select(this)
+                .transition()
+                .duration(200)
+                .attr("d", d3.arc().innerRadius(1).outerRadius(radius * 1.1)); // Scale up the segment on hover
+
+            tooltip.style("visibility", "visible")
+                .text(`${d.data[0]}: ${d.data[1]} releases (${((d.data[1] / totalReleases) * 100).toFixed(1)}%)`)
+                .style("left", (event.pageX + 10) + "px")
+                .style("top", (event.pageY - 28) + "px");
+        })
+        .on("mouseout", function () {
+            d3.select(this)
+                .transition()
+                .duration(200)
+                .attr("d", arc); // Reset the segment size
+
+            tooltip.style("visibility", "hidden");
+        });
 
     // Add percentage labels inside each segment
     svg.selectAll(".percent-label")

@@ -8,12 +8,16 @@
     <script src="../scripts/Header.js"></script>
     <style>
         body { font-family: Arial, sans-serif; margin: 0; }
-        .chart-container { .chart-container {
-            display: flex;
-            justify-content: center;
-            margin: 8px;
-            flex-direction: column;
-        } }
+        .chart-container { display: flex; justify-content: center; margin: 8px; flex-direction: column; }
+        .tooltip { 
+            position: absolute; 
+            text-align: center; 
+            padding: 8px; 
+            background-color: rgba(0, 0, 0, 0.7); 
+            color: white; 
+            border-radius: 5px; 
+            visibility: hidden;
+        }
     </style>
 </head>
 <body>
@@ -21,6 +25,8 @@
         <h2>Top 5 Years with the Most Song Releases</h2>
         <svg width="600" height="600"></svg>
     </div>
+    <div class="tooltip"></div> <!-- Tooltip element -->
+
     <script src="../scripts/Top5.js"></script>
 </body>
 </html>

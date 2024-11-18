@@ -36,6 +36,17 @@ d3.csv("../datasets/spotify-2023.csv").then(data => {
         .domain([-1, 1])
         .interpolator(d3.interpolateRdBu);  // Red for negative, blue for positive correlations
 
+    // Create tooltip div (hidden by default)
+    const tooltip = d3.select("body").append("div")
+        .attr("class", "tooltip")
+        .style("position", "absolute")
+        .style("visibility", "hidden")
+        .style("background-color", "rgba(0, 0, 0, 0.7)")
+        .style("color", "white")
+        .style("padding", "5px")
+        .style("border-radius", "3px")
+        .style("font-size", "12px");
+
     // Draw the heatmap cells
     svg.selectAll("rect")
         .data(correlationMatrix.flatMap((row, i) => row.map((value, j) => ({ x: i, y: j, value }))))
@@ -45,7 +56,27 @@ d3.csv("../datasets/spotify-2023.csv").then(data => {
         .attr("y", d => d.y * cellSize)
         .attr("width", cellSize)
         .attr("height", cellSize)
-        .attr("fill", d => colorScale(d.value));
+        .attr("fill", d => colorScale(d.value))
+        .on("mouseover", function (event, d) {
+            // Highlight the cell on hover
+            d3.select(this).style("stroke", "black").style("stroke-width", "1px");
+
+            // Show the tooltip with the correlation value
+            tooltip.style("visibility", "visible")
+                .html(`
+                    <strong>${features[d.x]}</strong> vs <strong>${features[d.y]}</strong><br>
+                    Correlation: ${d.value.toFixed(2)}
+                `)
+                .style("left", (event.pageX + 10) + "px")
+                .style("top", (event.pageY - 28) + "px");
+        })
+        .on("mouseout", function () {
+            // Reset the highlight on mouseout
+            d3.select(this).style("stroke", null).style("stroke-width", null);
+
+            // Hide the tooltip
+            tooltip.style("visibility", "hidden");
+        });
 
     // Add labels for rows and columns
     svg.selectAll(".x-label")
