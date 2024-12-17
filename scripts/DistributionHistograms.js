@@ -5,6 +5,7 @@ function kernelDensityEstimator(kernel, X) {
     };
 }
 
+
 // Adjust the kernel for smoother results
 function kernelEpanechnikov(k) {
     return function(v) {
