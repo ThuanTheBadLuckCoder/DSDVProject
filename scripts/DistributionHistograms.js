@@ -75,7 +75,7 @@ d3.csv("../datasets/spotify-2023.csv").then(data => {
         .style("opacity", 0.6)
         .on("mouseover", function(event, d) {
             tooltip.style("opacity", 1)
-            .html(`X: ${d.x0.toFixed(2)}<br>Count: ${d.length}`)
+            .html(`%: ${d.x0.toFixed(2)}<br>Frequency: ${d.length}`)
             .style("left", `${event.pageX + 10}px`)
             .style("top", `${event.pageY - 20}px`);
         
@@ -134,7 +134,7 @@ d3.csv("../datasets/spotify-2023.csv").then(data => {
         
                 // Show tooltip with interpolated density value
                 tooltip.style("opacity", 1)
-                    .html(`X: ${closestPoint[0].toFixed(2)}<br>Density: ${closestPoint[1].toFixed(4)}`)
+                    .html(`%: ${closestPoint[0].toFixed(2)}<br>Density: ${closestPoint[1].toFixed(4)}`)
                     .style("left", `${event.pageX + 10}px`)
                     .style("top", `${event.pageY - 20}px`);
             })
