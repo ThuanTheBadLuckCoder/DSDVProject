@@ -13,7 +13,7 @@ d3.csv("../datasets/spotify-2023.csv").then(data => {
         // Add title for each feature plot
         container.append("div")
             .attr("class", "title")
-            .text(`Lượt nghe và ${feature}`);
+            .text(`Streams and ${feature}`);
 
         // Create SVG for scatter plot
         const svg = container.append("svg")
@@ -78,7 +78,7 @@ d3.csv("../datasets/spotify-2023.csv").then(data => {
             .attr("dy", "1em")
             .attr("fill", "black")
             .style("font-size", "12px")
-            .text("Lượt nghe trực tuyến trên Spotify");
+            .text("Streams on Spotify");
 
         // Draw points with interaction
         const tooltip = container.append("div")
