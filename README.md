@@ -69,6 +69,12 @@ Below is an example of the histograms with KDE lines for feature distributions a
 
 ![image](https://github.com/user-attachments/assets/58ad2329-54a1-4266-8518-6fd96f71bdbd)
 
+
+*Scatter Plots:*
+
+![image](https://github.com/user-attachments/assets/e888e92e-902c-4341-b3fb-9b04b008607e)
+
+
 *Pie Chart:*
 
 ![image](https://github.com/user-attachments/assets/b8fc3585-d9cd-43b0-b775-03f17a4e3350)
