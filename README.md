@@ -78,24 +78,44 @@ cd your-repo-name
 2. Open with Live Server: `html/DistributionHistograms.html` (for example) in a web browser to view the visualizations.
 
 
-## Project Structure
-📁 Project Root
-├── datasets/                                    # Contains the dataset
-│   └── spotify-2023.csv                         # Dataset for analysis and visualizations
-├── html/                                        # HTML files for the project
-│   ├── DistributionHistograms.html             # HTML for histogram visualizations
-│   ├── Header.html                              # HTML for the header component
-│   ├── HeatMap.html                             # HTML for heatmap visualizations
-│   ├── ScatterPlot.html                         # HTML for scatter plot visualizations
-│   └── Top5.html                                # HTML for pie chart (Top 5 years)
-├── js/                                          # JavaScript files for visualizations
-│   ├── DistributionHistograms.js               # Script for creating histograms with KDE lines
-│   ├── Header.js                                # Script for handling header functionality
-│   ├── HeatMap.js                               # Script for generating the heatmap
-│   ├── ScatterPlot.js                           # Script for creating scatter plots
-│   └── Top5.js                                  # Script for pie chart visualizations
+## 📁 Project Structure
 
+```
+📦 Project Root
+├── 📂 datasets/                  # Contains the dataset
+│   └── 📊 spotify-2023.csv      # Dataset for analysis and visualizations
+├── 📂 html/                     # HTML files for the project
+│   ├── 📄 DistributionHistograms.html  # HTML for histogram visualizations
+│   ├── 📄 Header.html          # HTML for the header component
+│   ├── 📄 HeatMap.html         # HTML for heatmap visualizations
+│   ├── 📄 ScatterPlot.html     # HTML for scatter plot visualizations
+│   └── 📄 Top5.html            # HTML for pie chart (Top 5 years)
+└── 📂 js/                      # JavaScript files for visualizations
+    ├── 📄 DistributionHistograms.js    # Script for creating histograms with KDE lines
+    ├── 📄 Header.js            # Script for handling header functionality
+    ├── 📄 HeatMap.js           # Script for generating the heatmap
+    ├── 📄 ScatterPlot.js       # Script for creating scatter plots
+    └── 📄 Top5.js              # Script for pie chart visualizations
+```
 
+### Directory Details
+
+- **`datasets/`**: Contains the primary dataset used for analysis
+  - `spotify-2023.csv`: Main dataset file with Spotify music data
+  
+- **`html/`**: Contains all HTML template files
+  - `DistributionHistograms.html`: Displays statistical distributions
+  - `Header.html`: Project header component
+  - `HeatMap.html`: Correlation heatmap visualization
+  - `ScatterPlot.html`: Various scatter plot visualizations
+  - `Top5.html`: Top 5 years pie chart visualization
+  
+- **`js/`**: Contains JavaScript files for data visualization
+  - `DistributionHistograms.js`: Implements KDE-based histograms
+  - `Header.js`: Manages header interactions and functionality
+  - `HeatMap.js`: Generates correlation heatmap
+  - `ScatterPlot.js`: Implements interactive scatter plots
+  - `Top5.js`: Creates pie chart for top 5 years analysis
 
 ## Technologies Used
 - D3.js: JavaScript library for creating interactive and dynamic visualizations.
